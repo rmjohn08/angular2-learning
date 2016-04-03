@@ -1,0 +1,28 @@
+
+<div class="">
+    <!-- aligned on the right
+      class="col-sm-4 col-lg-4 col-md-4"
+    -->
+    <div class="col-md-9">
+        <div class="row carousel-holder">
+            <h4>{{myUser.name}} welcome!</h4>
+        </div>
+        <div class="row">
+            <div class="card-deck-wrapper">
+              <div class="card-deck">
+                  <div *ngFor="#item of items" class="col-sm-4 card" >
+                      <!-- the following can be another component -->
+                      <div class="card-block">
+                          <!-- img src="http://placehold.it/320x150" -->
+                          <div class="card-text">
+                              <h4 class='pull-right'>{{item.name}}</h4>
+                              <p>{{item.description}}</p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+    </div>
+</div>
