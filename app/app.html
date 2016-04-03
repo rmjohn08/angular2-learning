@@ -5,11 +5,14 @@
   <a [routerLink]="['/About']">About</a>
 </nav>
 
-<div class="col-sm-3">
-  <!-- aligned on the left -->
-  <registration></registration>
+<div class="col-sm-3 ">
+  <div class="sidebar-module sidebar-module-inset">
+    <!-- div class="col-sm-3 container-fluid" -->
+    <!-- aligned on the left -->
+    <registration></registration>
+  </div>
 </div>
 
-<main>
+<div class="col-sm-8 blog-main">
   <router-outlet></router-outlet>
-</main>
+</div>

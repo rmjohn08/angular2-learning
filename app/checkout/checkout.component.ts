@@ -1,6 +1,8 @@
 import {Component, OnInit} from 'angular2/core';
 import {CheckoutItemService} from '../services/checkout-item.service';
 import {UserService} from '../services/user.service';
+import {CheckoutNotificatorService} from '../services/checkout-notificator.service';
+import {ModalComponent} from '../util/modal.component';
 
 //import {RegistrationComponent} from '../register/register.component';
 //import {HomeComponent} from '../home/home.component';
@@ -9,15 +11,17 @@ import {UserService} from '../services/user.service';
   selector : "checkout",
   templateUrl : 'app/checkout/checkout.html',
   providers: [CheckoutItemService],
-  directives: []
+  directives: [ModalComponent]
 })
 export class CheckoutItemComponent implements OnInit {
     items = [];
     myUser: any;
     subscription: any;
+    checkoutSubscription: any;
 
     constructor(private _checkoutService: CheckoutItemService,
-      private _userService: UserService) {
+      private _userService: UserService,
+       private _checkoutNotificator : CheckoutNotificatorService) {
 
       this.items = _checkoutService.getItems();
       this.myUser = _userService .getRegisteredUser();
@@ -28,6 +32,11 @@ export class CheckoutItemComponent implements OnInit {
         console.log('User registration detected in checkout...');
 
       })
+      // subscribe when user checks out an items
+      this.checkoutSubscription = _checkoutNotificator.checkoutEmitter.subscribe((data) => {
+        console.log('User checked out an item ...');
+
+      });
 
     }
 

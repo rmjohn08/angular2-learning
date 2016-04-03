@@ -7,7 +7,7 @@ import {Router,ROUTER_DIRECTIVES} from 'angular2/router';
 @Component({
   selector: 'home',
   template:`
-  <main-container><h4>You can start the checkout process after registering.</h4></main-container>
+  <h4>You can start the checkout process after registering.</h4>
   `,
   providers: [],
   directives: [RegistrationComponent, ROUTER_DIRECTIVES],
