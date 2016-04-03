@@ -1,21 +1,7 @@
-# Angular 2 QuickStart Source
+# Angular2 Learnings - Checkout
+# Originally using this project ==> Angular 2 QuickStart Source
+# used the base of this project to start my learning of Angular2. 
 
-This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
-the foundation for most of the documentation samples and potentially a good starting point for your application.
-
-## Create a new project based on the QuickStart
-
-Clone this repo into new project folder (e.g., `my-proj`).
-```bash
-$ git clone  https://github.com/angular/quickstart  my-proj
-$ cd my-proj
-```
-
-We have no intention of updating the source on `angular/quickstart`.
-Discard everything "git-like" by deleting the `.git` folder.
-```bash
-$ rm -rf .git
-```
 
 ### Create a new git repo
 You could [start writing code](#start-development) now and throw it all away when you're done.
