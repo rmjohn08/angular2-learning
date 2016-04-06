@@ -1,5 +1,7 @@
-import {Component, EventEmitter, Output} from 'angular2/core';
+import {Component, EventEmitter, Output, ElementRef} from 'angular2/core';
 import {CheckoutNotificatorService} from '../services/checkout-notificator.service';
+
+declare var jQuery:any;
 
 @Component({
   selector: 'modal-component',
@@ -9,15 +11,32 @@ import {CheckoutNotificatorService} from '../services/checkout-notificator.servi
   pipes: []
 })
 export class ModalComponent {
+  elementRef: ElementRef;
   modalContent: string = "<h4>Checking out item</h4>";
   checkoutConfirmed: boolean = false;
 
-  constructor(private _checkoutNotificator: CheckoutNotificatorService) {
-
+  message1: string = "";
+  message2: string = "";
+  constructor(private _checkoutNotificator: CheckoutNotificatorService,
+        elementRef: ElementRef) {
+          this.elementRef = elementRef;
   }
 
   setModalContent(contentString: string) {
     this.modalContent = contentString;
+  }
+
+  openModal(item: any, user: any) {
+    this.message1 = "Item: " + item.name + "";
+    this.message2 = "Account: " + user.email + "";
+    this.modalContent = this.message1 + this.message2;
+
+    //jQuery(this.elementRef.nativeElement).find("#mymodal").modal
+    this.doModalAction('show');
+  }
+
+  doModalAction(action: string) {
+      jQuery(this.elementRef.nativeElement).find("#mymodal").modal(action);
   }
 
   //launchModal($event, cm) {
@@ -33,6 +52,7 @@ export class ModalComponent {
   confirmed() {
     this.checkoutConfirmed = true;
     this._checkoutNotificator.itemHasCheckedout();
+    this.doModalAction('hide');
     //this._checkoutNotificator.itemHasCheckedout(this.checkoutConfirmed);
   }
 

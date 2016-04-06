@@ -1,4 +1,6 @@
 
+<modal-component #modElement></modal-component>
+
 <div class="">
     <!-- aligned on the right
       class="col-sm-4 col-lg-4 col-md-4"
@@ -15,7 +17,10 @@
                       <div class="card-block">
                           <!-- img src="http://placehold.it/320x150" -->
                           <div class="card-text">
-                              <a href="javascript:void()"><h4 class='pull-right'>{{item.name}}</h4></a>
+                              <!-- a href="javascript:$('#mymodal').modal('show')" -->
+                              <a href="javascript:void(0)" (click)="modElement.openModal(item, myUser)">
+                                <h4 class='pull-right'>{{item.name}}</h4>
+                              </a>
                               <p>{{item.description}}</p>
                           </div>
                       </div>
@@ -26,5 +31,3 @@
 
     </div>
 </div>
-
-<modal-component></modal-component>
