@@ -1,8 +1,11 @@
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Component, OnInit} from 'angular2/core';
 import {CheckoutItemService} from '../services/checkout-item.service';
 import {UserService} from '../services/user.service';
 import {CheckoutNotificatorService} from '../services/checkout-notificator.service';
 import {ModalComponent} from '../util/modal.component';
+import {DimensionsComponent} from './dimensions.component';
+import {SerialComponent} from './serial.component';
 
 //import {RegistrationComponent} from '../register/register.component';
 //import {HomeComponent} from '../home/home.component';
@@ -11,8 +14,12 @@ import {ModalComponent} from '../util/modal.component';
   selector : "checkout",
   templateUrl : 'app/checkout/checkout.html',
   providers: [CheckoutItemService],
-  directives: [ModalComponent]
+  directives: [ModalComponent, ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+  {path: '/serial', component: SerialComponent, name:'Serial', useAsDefault:true},
+  {path: '/dimension', component: DimensionsComponent, name:'Dimensions'}
+])
 export class CheckoutItemComponent implements OnInit {
     items = [];
     myUser: any;

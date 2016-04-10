@@ -16,7 +16,7 @@ import {UserService, RegisteredUser} from './services/user.service';
 })@RouteConfig([
   {path: '/', component: HomeComponent, name:'Home', useAsDefault: true},
   {path: '/about', component: HomeComponent, name:'About'},
-  {path: '/checkout', component:CheckoutItemComponent, name:'Checkout'}
+  {path: '/checkout/...', component:CheckoutItemComponent, name:'Checkout'}
 ])
 export class AppComponent implements OnInit {
     user: RegisteredUser;
