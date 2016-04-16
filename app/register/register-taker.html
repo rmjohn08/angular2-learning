@@ -1,0 +1,32 @@
+<div class="row">
+  <form (submit)="registerUser()">
+      <fieldset class="form-group">
+          <label for="userName">Name</label>
+          <input type="text" [(ngModel)]="regUser.name" id="userName"
+          class="form-control" placeholder="Name"
+          required='required'
+          [disabled] = "registrationComplete">
+      </fieldset>
+      <fieldset class="form-group">
+          <label for="userEmail">Email</label>
+          <input type="email" [(ngModel)] = "regUser.email"
+          class="form-control" placeholder="Email"
+          required='required'
+          [disabled] = "registrationComplete" >
+      </fieldset>
+
+
+       <button type="submit"
+        class="btn btn-primary"
+        [disabled] = "registrationComplete"
+        [hidden]="registrationComplete">Register</button>
+
+        <button
+         class="btn btn-secondary"
+         [hidden]="!registrationComplete"
+         (click)="signOut()">Signout</button>
+
+
+  </form>
+
+</div>
