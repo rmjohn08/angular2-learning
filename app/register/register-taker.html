@@ -1,15 +1,19 @@
 <div class="row">
-  <form (submit)="registerUser()">
+  <form #registrationForm="ngForm" (ngSubmit)="registerUser(registrationForm)" novalidate>
       <fieldset class="form-group">
           <label for="userName">Name</label>
-          <input type="text" [(ngModel)]="regUser.name" id="userName"
+          <input type="text"
+          id="userName"
+          ngControl="userName"
           class="form-control" placeholder="Name"
           required='required'
           [disabled] = "registrationComplete">
       </fieldset>
       <fieldset class="form-group">
           <label for="userEmail">Email</label>
-          <input type="email" [(ngModel)] = "regUser.email"
+          <input type="email"
+          id="userEmail"
+          ngControl="userEmail"
           class="form-control" placeholder="Email"
           required='required'
           [disabled] = "registrationComplete" >
@@ -18,7 +22,7 @@
 
        <button type="submit"
         class="btn btn-primary"
-        [disabled] = "registrationComplete"
+        [disabled] = "!registrationForm.valid"
         [hidden]="registrationComplete">Register</button>
 
         <button

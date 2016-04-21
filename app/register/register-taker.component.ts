@@ -1,14 +1,15 @@
 import {Component, Output, EventEmitter, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {UserService, RegisteredUser} from '../services/user.service';
+import {FORM_DIRECTIVES, NgForm} from 'angular2/common';
+
 
 @Component({
   selector:'register-taker',
+  directives: [FORM_DIRECTIVES],
   templateUrl: 'app/register/register-taker.html'
 })
 export class RegisterTakerComponent implements OnInit {
-
-
       subscription: any;
       regUser: RegisteredUser;
       registrationComplete: boolean = false;
@@ -24,7 +25,9 @@ export class RegisterTakerComponent implements OnInit {
         this.regUser = this._userService.getEmptyRegisteredUser();
       }
 
-      registerUser() {
+      registerUser(registrationForm: NgForm) {
+        this.regUser.name = registrationForm.value.userName;
+        this.regUser.email = registrationForm.value.userEmail;
         this._userService.registerUser(this.regUser);
         this.registrationComplete=true;
         this.onRegistered.emit(this.regUser.name);
