@@ -1,0 +1,48 @@
+<div class="container">
+<form [ngFormModel]="formModel"
+  (ngSubmit)="onSubmit()"
+  novalidate>
+
+    <div class="form-group row">Name:
+        <!-- input type="text" ngControl="personName" -->
+        <input type="text"
+        ngControl="personName"
+        #pn = "ngForm">
+        <span *ngIf="!formModel.hasError('required', 'personName')">
+          Name is required
+        </span>
+    </div>
+
+    <div class="form-group row">Phone:
+        <input type="text"
+        ngControl="personPhone">
+
+    </div>
+
+    <div class="form-group row">Email:
+        <input type="text" ngControl="personEmail">
+
+    </div>
+
+    <div class="form-group row" ngControlGroup="personAddressGroup">Address
+      <div class="form-group row">Address 1:
+        <input type="text" ngControl="address">
+      </div>
+
+      <div class="form-group row">City:
+        <input type="text" ngControl="city">
+      </div>
+
+      <div class="form-group row">Zipcode:
+        <input type="text" ngControl="zipCode">
+      </div>
+
+      <div class="form-group row">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+
+
+    </div>
+</form>
+
+</div>

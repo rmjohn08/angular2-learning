@@ -5,6 +5,7 @@ import {CheckoutItemComponent} from './checkout/checkout.component';
 import {RegistrationComponent} from './register/register.component';
 import {HomeComponent} from './home/home.component';
 import {UserService, RegisteredUser} from './services/user.service';
+import {ContactUsComponent} from './contactus/contactus.component';
 
 @Component({
     selector: 'my-app',
@@ -15,7 +16,7 @@ import {UserService, RegisteredUser} from './services/user.service';
 
 })@RouteConfig([
   {path: '/', component: HomeComponent, name:'Home', useAsDefault: true},
-  {path: '/about', component: HomeComponent, name:'About'},
+  {path: '/contactus', component: ContactUsComponent, name:'Contactus'},
   {path: '/checkout/...', component:CheckoutItemComponent, name:'Checkout'}
 ])
 export class AppComponent implements OnInit {
