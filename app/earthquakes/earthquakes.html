@@ -1,0 +1,13 @@
+<div *ngFor="#item of earthquakes" class="card" >
+    <!-- the following can be another component -->
+    <div class="card-block">
+        <!-- img src="http://placehold.it/320x150" -->
+        <div class="card-text">
+            <!-- modElement.openModal(item, myUser) <- oldversion
+              a href="javascript:$('#mymodal').modal('show')" -->
+            <b>place:</b>{{item.properties.place}}
+             <b>magnitude:</b> {{item.properties.mag}}
+            <b>time:</b> {{item.properties.time | date:'medium'}}
+            <p><a target="_blank" href="{{item.properties.url}}">Map it</a></p>
+        </div>
+    </div>
